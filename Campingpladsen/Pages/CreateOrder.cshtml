@@ -1,0 +1,60 @@
+﻿@page
+@model Campingpladsen.Pages.CreateOrderModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Order Records</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="order.Total_Prise" class="control-label"></label>
+                <input asp-for="order.Total_Prise" class="form-control" />
+                <span asp-validation-for="order.Total_Prise" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="order.Adult" class="control-label"></label>
+                <input asp-for="order.Adult" class="form-control" />
+                <span asp-validation-for="order.Adult" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="order.child" class="control-label"></label>
+                <input asp-for="order.child" class="form-control" />
+                <span asp-validation-for="order.child" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="order.Dog" class="control-label"></label>
+                <input asp-for="order.Dog" class="form-control" />
+                <span asp-validation-for="order.Dog" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="order.Spot_Id" class="control-label"></label>
+                <input asp-for="order.Spot_Id" class="form-control" />
+                <span asp-validation-for="order.Spot_Id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="order.Customer_id" class="control-label"></label>
+                <input asp-for="order.Customer_id" class="form-control" />
+                <span asp-validation-for="order.Customer_id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="index">Back to List</a>
+</div>

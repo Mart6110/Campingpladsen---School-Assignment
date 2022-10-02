@@ -1,0 +1,46 @@
+﻿@page
+@model Campingpladsen.Pages.CustomerDetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Firstname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.Firstname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Lastname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.Lastname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.customer.Phone)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./EditCustomer" asp-route-id="@Model.customer.ID">Edit</a> |
+    <a asp-page="Index">Back to List</a>
+</div>

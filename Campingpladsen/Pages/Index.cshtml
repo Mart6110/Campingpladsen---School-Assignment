@@ -1,0 +1,180 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<main>
+    <div class="text-center">
+        <h1 class="display-4">Campingpladsen - Administration</h1>
+    </div>
+    <section>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Reservations')" id="defaultOpen">Reservations</button>
+            <button class="tablinks" onclick="openTab(event, 'Customers')">Customers</button>
+            <button class="tablinks" onclick="openTab(event, 'Prices')">Prices</button>
+        </div>
+
+        <div id="Reservations" class="tabcontent">
+            <h3>Reservations</h3>
+            <p>
+                <a asp-page="CreateOrder">Create New Reservation</a>
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order[0].Total_Prise)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order[0].Adult)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order[0].child)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order[0].Dog)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order[0].Spot_Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order[0].Customer_id)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.order)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Prise)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Adult)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.child)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dog)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Spot_Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer_id)
+                        </td>
+                        <td>
+                            <a asp-page="./EditOrder" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-page="./OrderDetails" asp-route-id="@item.ID">Details</a> |
+                            <a asp-page="./DeleteOrder" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div id="Customers" class="tabcontent">
+            <h3>Customers</h3>
+            <p>
+                <a asp-page="CreateCustomer">Create New Customer</a>
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer[0].Firstname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer[0].Lastname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer[0].Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer[0].Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer[0].Phone)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.customer)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Firstname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Lastname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            <a asp-page="./EditCustomer" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-page="./CustomerDetails" asp-route-id="@item.ID">Details</a> |
+                            <a asp-page="./DeleteCustomer" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div id="Prices" class="tabcontent">
+            <h3>Prices</h3>
+
+            <p>
+                <a asp-page="CreatePrice">Create New Price</a>
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price[0].Price_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price[0].High_Season_Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price[0].Low_Season_Price)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.price)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.High_Season_Price) kr.
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Low_Season_Price) kr.
+                            </td>
+                            <td>
+                                <a asp-page="./EditPrice" asp-route-id="@item.ID">Edit</a> |
+                                <a asp-page="./PriceDetails" asp-route-id="@item.ID">Details</a> |
+                                <a asp-page="./DeletePrice" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+

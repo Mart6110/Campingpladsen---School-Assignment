@@ -1,0 +1,52 @@
+﻿@page
+@model Campingpladsen.Pages.OrderDetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Total_Prise)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order.Total_Prise)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Adult)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order.Adult)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order.child)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order.child)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Dog)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order.Dog)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Spot_Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order.Spot_Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order.Customer_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order.Customer_id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./EditOrder" asp-route-id="@Model.order.ID">Edit</a> |
+    <a asp-page="Index">Back to List</a>
+</div>

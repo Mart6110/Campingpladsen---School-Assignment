@@ -1,0 +1,41 @@
+﻿@page
+@model Campingpladsen.Pages.CreatePriceModel
+@{
+    ViewData["Title"] = "Create";
+}
+<h2>Create Price Records</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="price.Price_name" class="control-label"></label>
+                <input asp-for="price.Price_name" class="form-control" />
+                <span asp-validation-for="price.Price_name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="price.High_Season_Price" class="control-label"></label>
+                <input asp-for="price.High_Season_Price" class="form-control" />
+                <span asp-validation-for="price.High_Season_Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="price.Low_Season_Price" class="control-label"></label>
+                <input asp-for="price.Low_Season_Price" class="form-control" />
+                <span asp-validation-for="price.Low_Season_Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="index">Back to List</a>
+</div>
